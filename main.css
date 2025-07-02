@@ -1,1 +1,151 @@
-/* Please insert all your CSS code into this document */
+/* Please insert all your CSS code into this document *//* ----- GLOBAL LAYOUT ----- */
+
+/* Fixed Header */
+header:first-of-type {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #222;
+  color: #fff;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-bottom: 2px solid #555;
+}
+
+/* Fixed Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #222;
+  color: #fff;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+
+/* MAIN WRAPPER FLEX LAYOUT */
+#wrapper {
+  display: flex;
+  flex-direction: row;
+  padding-top: 100px;     /* Matches header height */
+  padding-bottom: 80px;   /* Matches footer height */
+  min-height: calc(100vh - 180px);
+  box-sizing: border-box;
+  width: 100%;
+  background: #f5f5f5;
+}
+
+/* SIDEBAR */
+#sidebar {
+  width: 220px;
+  background: #333;
+  color: #fff;
+  padding: 20px 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  min-height: calc(100vh - 180px);
+  border-right: 2px solid #222;
+}
+
+#sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar nav ul li {
+  margin-bottom: 15px;
+}
+
+#sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 6px 8px;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+#sidebar nav ul li a:hover,
+#sidebar nav ul li a:focus {
+  background: #444;
+}
+
+/* MAIN CONTENT: THE KEY FIX IS HERE! */
+main {
+  flex: 1;
+  padding: 56px 25px 30px 25px; /* 56px on top: 30px (your original) + 26px extra! */
+  background: #fafafa;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+article {
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 25px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+article header h2 {
+  margin-top: 0;
+}
+
+/* IMAGES AND FIGURES */
+figure {
+  margin: 0 0 12px 0;
+}
+
+figure img {
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 800px) {
+  #wrapper {
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: calc(100vh - 100px);
+  }
+  #sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 10px 5px;
+    border-right: none;
+    border-bottom: 2px solid #222;
+  }
+  main {
+    padding: 31px 2vw 15px 2vw; /* 31px top = 15px original + 16px extra */
+  }
+  header:first-of-type, footer {
+    height: 50px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  article {
+    padding: 12px 5px;
+  }
+  main {
+    padding: 15px 2vw 5px 2vw;
+  }
+}
