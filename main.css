@@ -1,4 +1,6 @@
-/* ----- GLOBAL LAYOUT: Header & Footer Fixed ----- */
+/* ===========================
+   GLOBAL LAYOUT: Header & Footer Fixed
+   =========================== */
 header:first-of-type {
   position: fixed;
   top: 0; left: 0;
@@ -14,7 +16,6 @@ header:first-of-type {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   border-bottom: 2px solid #555;
 }
-
 footer {
   position: fixed;
   bottom: 0; left: 0;
@@ -29,7 +30,6 @@ footer {
   box-sizing: border-box;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
-
 footer ul {
   list-style: none;
   display: flex;
@@ -37,12 +37,13 @@ footer ul {
   margin: 0;
   padding: 0;
 }
-
 footer ul li { font-size: 1.05em; }
 footer a { color: #fff; text-decoration: underline; }
 footer a:hover, footer a:focus { color: #ffe375; text-decoration: none; }
 
-/* ----- GLOBAL WRAPPER AND SIDEBAR (Default: Flex Layout) ----- */
+/* ===========================
+   DEFAULT GLOBAL FLEX LAYOUT (index.html and fallback)
+   =========================== */
 #wrapper {
   display: flex;
   flex-direction: row;
@@ -53,8 +54,7 @@ footer a:hover, footer a:focus { color: #ffe375; text-decoration: none; }
   width: 100%;
   background: #f5f5f5;
 }
-
-#sidebar, aside {
+aside {
   width: 220px;
   background: #333;
   color: #fff;
@@ -64,14 +64,13 @@ footer a:hover, footer a:focus { color: #ffe375; text-decoration: none; }
   min-height: calc(100vh - 180px);
   border-right: 2px solid #222;
 }
-
-#sidebar nav ul, aside nav ul {
+aside nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-#sidebar nav ul li, aside nav ul li { margin-bottom: 15px; }
-#sidebar nav ul li a, aside nav ul li a {
+aside nav ul li { margin-bottom: 15px; }
+aside nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
@@ -80,15 +79,12 @@ footer a:hover, footer a:focus { color: #ffe375; text-decoration: none; }
   border-radius: 3px;
   transition: background 0.2s;
 }
-#sidebar nav ul li a:hover,
-#sidebar nav ul li a:focus,
 aside nav ul li a:hover,
-aside nav ul li a:focus {
+aside nav ul li a:focus,
+aside nav ul li a[aria-current="page"] {
   background: #444;
 }
-
-/* ----- MAIN CONTENT (Default) ----- */
-main, .scroll-articles {
+main {
   flex: 1;
   padding: 56px 25px 30px 25px;
   background: #fafafa;
@@ -96,7 +92,6 @@ main, .scroll-articles {
   box-sizing: border-box;
   overflow: auto;
 }
-
 article {
   background: #fff;
   margin-bottom: 30px;
@@ -104,7 +99,6 @@ article {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
-
 article header h2 { margin-top: 0; }
 figure { margin: 0 0 12px 0; }
 figure img {
@@ -113,14 +107,16 @@ figure img {
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
-/* ----- ONE.HTML: ABSOLUTE LAYOUT (Overrides Flex) ----- */
+/* ===========================
+   PAGE ONE: ABSOLUTE LAYOUT
+   =========================== */
 .one-page #wrapper {
   position: relative;
   width: 100%;
   height: calc(100vh - 180px);
-  margin-top: 100px;   /* header height */
-  margin-bottom: 80px; /* footer height */
-  display: block;      /* disable flex */
+  margin-top: 100px;
+  margin-bottom: 80px;
+  display: block;
   padding: 0;
   min-height: 0;
 }
@@ -152,41 +148,11 @@ figure img {
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
-/* ----- RESPONSIVE DESIGN ----- */
 @media (max-width: 800px) {
-  #wrapper {
-    flex-direction: column;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    min-height: calc(100vh - 100px);
-  }
-  #sidebar, aside {
-    width: 100%;
-    min-height: auto;
-    padding: 10px 5px;
-    border-right: none;
-    border-bottom: 2px solid #222;
-  }
-  main, .scroll-articles {
-    padding: 31px 2vw 15px 2vw;
-  }
-  header:first-of-type, footer {
-    height: 50px;
-    padding: 0 10px;
-  }
-  /* PAGE ONE */
-  .one-page aside {
-    width: 100px;
-  }
-  .one-page .scroll-articles {
-    left: 100px;
-    padding: 10px;
-  }
+  .one-page aside { width: 100px; }
+  .one-page .scroll-articles { left: 100px; padding: 10px; }
 }
 @media (max-width: 500px) {
-  article { padding: 12px 5px; }
-  main, .scroll-articles { padding: 15px 2vw 5px 2vw; }
-  /* PAGE ONE */
   .one-page aside {
     position: static;
     width: 100%;
@@ -196,9 +162,7 @@ figure img {
   }
   .one-page .scroll-articles {
     position: static;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 0; right: 0; bottom: 0;
     padding: 5px;
     overflow-y: visible;
   }
@@ -207,16 +171,17 @@ figure img {
     margin-bottom: 50px;
   }
 }
-/* --- PAGE TWO: FLOAT LAYOUT (PIXEL WIDTHS) --- */
+
+/* ===========================
+   PAGE TWO: FLOAT LAYOUT (pixels)
+   =========================== */
 .two-page #wrapper {
-  margin-top: 100px;   /* Height of fixed header */
-  margin-bottom: 80px; /* Height of fixed footer */
+  margin-top: 100px;
+  margin-bottom: 80px;
   min-height: calc(100vh - 180px);
   background: #f5f5f5;
   box-sizing: border-box;
 }
-
-/* Sidebar floats left, fixed width */
 .two-page aside {
   float: left;
   width: 220px;
@@ -227,8 +192,6 @@ figure img {
   border-right: 2px solid #222;
   height: auto;
 }
-
-/* Main content floats left, fills remaining width */
 .two-page .two-articles {
   float: left;
   width: calc(100% - 220px);
@@ -237,8 +200,6 @@ figure img {
   background: #fafafa;
   min-height: 100vh;
 }
-
-/* Article styling */
 .two-page .two-articles article {
   background: #fff;
   margin-bottom: 30px;
@@ -246,16 +207,12 @@ figure img {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
-
-/* Sidebar nav styles (optional for emphasis) */
 .two-page aside nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.two-page aside nav ul li {
-  margin-bottom: 15px;
-}
+.two-page aside nav ul li { margin-bottom: 15px; }
 .two-page aside nav ul li a {
   color: #fff;
   text-decoration: none;
@@ -270,15 +227,12 @@ figure img {
 .two-page aside nav ul li a[aria-current="page"] {
   background: #444;
 }
-
-/* clearfix hack (add <div class="clearfix"></div> after .two-articles in your HTML) */
+/* clearfix hack */
 .clearfix::after {
   content: "";
   display: table;
   clear: both;
 }
-
-/* Responsive: stack sidebar and content on small screens */
 @media (max-width: 800px) {
   .two-page aside,
   .two-page .two-articles {
@@ -290,17 +244,18 @@ figure img {
   }
   .two-page .two-articles { padding-top: 0; padding-bottom: 0; }
 }
-/* --- PAGE THREE: Responsive Float Layout --- */
+
+/* ===========================
+   PAGE THREE: RESPONSIVE FLOAT LAYOUT (percent)
+   =========================== */
 .three-page #wrapper {
-  margin-top: 100px;   /* Height of fixed header */
-  margin-bottom: 80px; /* Height of fixed footer */
+  margin-top: 100px;
+  margin-bottom: 80px;
   min-height: calc(100vh - 180px);
   box-sizing: border-box;
   width: 100%;
   background: #f5f5f5;
 }
-
-/* Sidebar floats left, 26% width */
 .three-page aside {
   float: left;
   width: 26%;
@@ -313,15 +268,12 @@ figure img {
   border-right: 2px solid #222;
   height: auto;
 }
-
 .three-page aside nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.three-page aside nav ul li {
-  margin-bottom: 15px;
-}
+.three-page aside nav ul li { margin-bottom: 15px; }
 .three-page aside nav ul li a {
   color: #fff;
   text-decoration: none;
@@ -336,8 +288,6 @@ figure img {
 .three-page aside nav ul li a[aria-current="page"] {
   background: #444;
 }
-
-/* Main content floats left, 74% width */
 .three-page .three-articles {
   float: left;
   width: 74%;
@@ -346,7 +296,6 @@ figure img {
   background: #fafafa;
   min-height: 100vh;
 }
-
 .three-page .three-articles article {
   background: #fff;
   margin-bottom: 30px;
@@ -354,9 +303,7 @@ figure img {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
-.three-page .three-articles article header h2 {
-  margin-top: 0;
-}
+.three-page .three-articles article header h2 { margin-top: 0; }
 .three-page figure img {
   max-width: 100%;
   border-radius: 4px;
@@ -364,15 +311,12 @@ figure img {
   display: block;
   margin: 0 auto 12px auto;
 }
-
 /* clearfix hack */
 .clearfix::after {
   content: "";
   display: table;
   clear: both;
 }
-
-/* Responsive: stack sidebar and content on small screens */
 @media (max-width: 800px) {
   .three-page aside,
   .three-page .three-articles {
@@ -388,18 +332,19 @@ figure img {
     padding-bottom: 0;
   }
 }
-/* --- PAGE FOUR: INLINE-BLOCK LAYOUT --- */
+
+/* ===========================
+   PAGE FOUR: INLINE-BLOCK LAYOUT
+   =========================== */
 .four-page #wrapper {
-  margin-top: 100px;   /* Fixed header height */
-  margin-bottom: 80px; /* Fixed footer height */
+  margin-top: 100px;
+  margin-bottom: 80px;
   min-height: calc(100vh - 180px);
   width: 100%;
   background: #f5f5f5;
-  font-size: 0; /* Removes inline-block whitespace! */
+  font-size: 0; /* Remove inline-block whitespace */
   box-sizing: border-box;
 }
-
-/* Sidebar as inline-block */
 .four-page aside {
   display: inline-block;
   vertical-align: top;
@@ -411,10 +356,8 @@ figure img {
   padding: 20px 16px;
   box-sizing: border-box;
   border-right: 2px solid #222;
-  font-size: 1rem; /* Reset font size */
+  font-size: 1rem;
 }
-
-/* Main content as inline-block */
 .four-page .four-articles {
   display: inline-block;
   vertical-align: top;
@@ -422,10 +365,8 @@ figure img {
   padding: 25px;
   box-sizing: border-box;
   background: #fafafa;
-  font-size: 1rem; /* Reset font size */
+  font-size: 1rem;
 }
-
-/* Article styling */
 .four-page .four-articles article {
   background: #fff;
   margin-bottom: 30px;
@@ -433,12 +374,8 @@ figure img {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
-
-/* Responsive: stack on small screens */
 @media (max-width: 800px) {
-  .four-page #wrapper {
-    font-size: 0;
-  }
+  .four-page #wrapper { font-size: 0; }
   .four-page aside,
   .four-page .four-articles {
     display: block;
@@ -455,7 +392,9 @@ figure img {
   }
 }
 
-/* --- PAGE FIVE: INLINE-BLOCK PHOTO GALLERY --- */
+/* ===========================
+   PAGE FIVE: INLINE-BLOCK PHOTO GALLERY
+   =========================== */
 .five-page #wrapper {
   margin-top: 100px;
   margin-bottom: 80px;
@@ -463,7 +402,6 @@ figure img {
   background: #f5f5f5;
   box-sizing: border-box;
 }
-
 .five-page aside {
   display: inline-block;
   vertical-align: top;
@@ -485,9 +423,7 @@ figure img {
   background: #fafafa;
   box-sizing: border-box;
 }
-.five-page .gallery-main header h2 {
-  margin-top: 0;
-}
+.five-page .gallery-main header h2 { margin-top: 0; }
 .five-gallery {
   text-align: center;
   font-size: 0;
@@ -536,7 +472,6 @@ figure img {
 .five-gallery figure:focus-within figcaption {
   opacity: 1;
 }
-
 @media (max-width: 900px) {
   .five-page aside { width: 100%; max-width: 100%; display: block; border-right: none; border-bottom: 2px solid #222; }
   .five-page .gallery-main { width: 100%; display: block; }
@@ -544,4 +479,34 @@ figure img {
 @media (max-width: 600px) {
   .five-gallery figure { width: 44vw; height: 44vw; min-width: 110px; min-height: 110px; max-width: 180px; max-height: 180px; }
   .five-page .gallery-main { padding: 5px 0; }
+}
+
+/* ===========================
+   RESPONSIVE DESIGN (GLOBAL, OVERRIDES)
+   =========================== */
+@media (max-width: 800px) {
+  #wrapper {
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: calc(100vh - 100px);
+  }
+  aside {
+    width: 100%;
+    min-height: auto;
+    padding: 10px 5px;
+    border-right: none;
+    border-bottom: 2px solid #222;
+  }
+  main {
+    padding: 31px 2vw 15px 2vw;
+  }
+  header:first-of-type, footer {
+    height: 50px;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 500px) {
+  article { padding: 12px 5px; }
+  main { padding: 15px 2vw 5px 2vw; }
 }
