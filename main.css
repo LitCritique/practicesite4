@@ -1,4 +1,6 @@
-/* Please insert all your CSS code into this document *//* ----- GLOBAL LAYOUT ----- */
+
+
+/* ----- GLOBAL LAYOUT ----- */
 
 /* Fixed Header */
 header:first-of-type {
@@ -84,7 +86,7 @@ footer {
   background: #444;
 }
 
-/* MAIN CONTENT: THE KEY FIX IS HERE! */
+/* MAIN CONTENT */
 main {
   flex: 1;
   padding: 56px 25px 30px 25px; /* 56px on top: 30px (your original) + 26px extra! */
@@ -106,7 +108,7 @@ article header h2 {
   margin-top: 0;
 }
 
-/* IMAGES AND FIGURES */
+
 figure {
   margin: 0 0 12px 0;
 }
@@ -117,7 +119,7 @@ figure img {
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
-/* RESPONSIVE DESIGN */
+
 @media (max-width: 800px) {
   #wrapper {
     flex-direction: column;
@@ -133,7 +135,7 @@ figure img {
     border-bottom: 2px solid #222;
   }
   main {
-    padding: 31px 2vw 15px 2vw; /* 31px top = 15px original + 16px extra */
+    padding: 31px 2vw 15px 2vw; 
   }
   header:first-of-type, footer {
     height: 50px;
@@ -147,5 +149,74 @@ figure img {
   }
   main {
     padding: 15px 2vw 5px 2vw;
+  }
+}
+
+/*Page one Specific*/
+
+.one-page #wrapper {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 180px); 
+}
+
+.one-page aside {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: #333;
+  color: #fff;
+  padding: 20px 20px;
+  box-sizing: border-box;
+  border-right: 2px solid #222;
+  overflow-y: auto;
+}
+
+.one-page .scroll-articles {
+  position: absolute;
+  left: 220px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  padding: 25px;
+  background: #fafafa;
+}
+
+.one-page .scroll-articles article {
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 25px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+
+@media (max-width: 800px) {
+  .one-page aside {
+    width: 100px;
+  }
+  .one-page .scroll-articles {
+    left: 100px;
+    padding: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .one-page aside {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid #222;
+  }
+  .one-page .scroll-articles {
+    position: static;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    overflow-y: visible;
   }
 }
