@@ -306,3 +306,69 @@ figure img {
     padding-bottom: 0;
   }
 }
+/* --- PAGE FOUR: INLINE-BLOCK LAYOUT --- */
+.four-page #wrapper {
+  margin-top: 100px;   /* Fixed header height */
+  margin-bottom: 80px; /* Fixed footer height */
+  min-height: calc(100vh - 180px);
+  width: 100%;
+  background: #f5f5f5;
+  font-size: 0; /* Removes inline-block whitespace! */
+  box-sizing: border-box;
+}
+
+/* Sidebar as inline-block */
+.four-page aside {
+  display: inline-block;
+  vertical-align: top;
+  width: 26%;
+  min-width: 150px;
+  max-width: 250px;
+  background: #333;
+  color: #fff;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  border-right: 2px solid #222;
+  font-size: 1rem; /* Reset font size */
+}
+
+/* Main content as inline-block */
+.four-page .four-articles {
+  display: inline-block;
+  vertical-align: top;
+  width: 74%;
+  padding: 25px;
+  box-sizing: border-box;
+  background: #fafafa;
+  font-size: 1rem; /* Reset font size */
+}
+
+/* Article styling */
+.four-page .four-articles article {
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 25px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 800px) {
+  .four-page #wrapper {
+    font-size: 0;
+  }
+  .four-page aside,
+  .four-page .four-articles {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 2vw;
+    border-right: none;
+    border-bottom: 2px solid #222;
+    font-size: 1rem;
+  }
+  .four-page .four-articles {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
