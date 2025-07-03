@@ -1,12 +1,7 @@
-
-
-/* ----- GLOBAL LAYOUT ----- */
-
-/* Fixed Header */
+/* ----- GLOBAL LAYOUT: Header & Footer Fixed ----- */
 header:first-of-type {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100px;
   background: #222;
@@ -20,11 +15,9 @@ header:first-of-type {
   border-bottom: 2px solid #555;
 }
 
-/* Fixed Footer */
 footer {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 0; left: 0;
   width: 100%;
   height: 80px;
   background: #222;
@@ -37,20 +30,31 @@ footer {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
 
-/* MAIN WRAPPER FLEX LAYOUT */
+footer ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+footer ul li { font-size: 1.05em; }
+footer a { color: #fff; text-decoration: underline; }
+footer a:hover, footer a:focus { color: #ffe375; text-decoration: none; }
+
+/* ----- GLOBAL WRAPPER AND SIDEBAR (Default: Flex Layout) ----- */
 #wrapper {
   display: flex;
   flex-direction: row;
-  padding-top: 100px;     /* Matches header height */
-  padding-bottom: 80px;   /* Matches footer height */
+  padding-top: 100px;     /* header height */
+  padding-bottom: 80px;   /* footer height */
   min-height: calc(100vh - 180px);
   box-sizing: border-box;
   width: 100%;
   background: #f5f5f5;
 }
 
-/* SIDEBAR */
-#sidebar {
+#sidebar, aside {
   width: 220px;
   background: #333;
   color: #fff;
@@ -61,17 +65,13 @@ footer {
   border-right: 2px solid #222;
 }
 
-#sidebar nav ul {
+#sidebar nav ul, aside nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-#sidebar nav ul li {
-  margin-bottom: 15px;
-}
-
-#sidebar nav ul li a {
+#sidebar nav ul li, aside nav ul li { margin-bottom: 15px; }
+#sidebar nav ul li a, aside nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
@@ -80,16 +80,17 @@ footer {
   border-radius: 3px;
   transition: background 0.2s;
 }
-
 #sidebar nav ul li a:hover,
-#sidebar nav ul li a:focus {
+#sidebar nav ul li a:focus,
+aside nav ul li a:hover,
+aside nav ul li a:focus {
   background: #444;
 }
 
-/* MAIN CONTENT */
-main {
+/* ----- MAIN CONTENT (Default) ----- */
+main, .scroll-articles {
   flex: 1;
-  padding: 56px 25px 30px 25px; /* 56px on top: 30px (your original) + 26px extra! */
+  padding: 56px 25px 30px 25px;
   background: #fafafa;
   min-width: 0;
   box-sizing: border-box;
@@ -104,87 +105,45 @@ article {
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
-article header h2 {
-  margin-top: 0;
-}
-
-
-figure {
-  margin: 0 0 12px 0;
-}
-
+article header h2 { margin-top: 0; }
+figure { margin: 0 0 12px 0; }
 figure img {
   max-width: 100%;
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
-
-@media (max-width: 800px) {
-  #wrapper {
-    flex-direction: column;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    min-height: calc(100vh - 100px);
-  }
-  #sidebar {
-    width: 100%;
-    min-height: auto;
-    padding: 10px 5px;
-    border-right: none;
-    border-bottom: 2px solid #222;
-  }
-  main {
-    padding: 31px 2vw 15px 2vw; 
-  }
-  header:first-of-type, footer {
-    height: 50px;
-    padding: 0 10px;
-  }
-}
-
-@media (max-width: 500px) {
-  article {
-    padding: 12px 5px;
-  }
-  main {
-    padding: 15px 2vw 5px 2vw;
-  }
-}
-
-/*Page one Specific*/
-
+/* ----- ONE.HTML: ABSOLUTE LAYOUT (Overrides Flex) ----- */
 .one-page #wrapper {
   position: relative;
   width: 100%;
-  height: calc(100vh - 180px); 
+  height: calc(100vh - 180px);
+  margin-top: 100px;   /* header height */
+  margin-bottom: 80px; /* footer height */
+  display: block;      /* disable flex */
+  padding: 0;
+  min-height: 0;
 }
-
 .one-page aside {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 0; top: 0; bottom: 0;
   width: 220px;
-  height: 100%;
   background: #333;
   color: #fff;
   padding: 20px 20px;
   box-sizing: border-box;
   border-right: 2px solid #222;
   overflow-y: auto;
+  z-index: 2;
 }
-
 .one-page .scroll-articles {
   position: absolute;
-  left: 220px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow-y: scroll;
+  left: 220px; top: 0; right: 0; bottom: 0;
+  overflow-y: auto;
   padding: 25px;
   background: #fafafa;
+  z-index: 1;
 }
-
 .one-page .scroll-articles article {
   background: #fff;
   margin-bottom: 30px;
@@ -193,8 +152,29 @@ figure img {
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
-
+/* ----- RESPONSIVE DESIGN ----- */
 @media (max-width: 800px) {
+  #wrapper {
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: calc(100vh - 100px);
+  }
+  #sidebar, aside {
+    width: 100%;
+    min-height: auto;
+    padding: 10px 5px;
+    border-right: none;
+    border-bottom: 2px solid #222;
+  }
+  main, .scroll-articles {
+    padding: 31px 2vw 15px 2vw;
+  }
+  header:first-of-type, footer {
+    height: 50px;
+    padding: 0 10px;
+  }
+  /* PAGE ONE */
   .one-page aside {
     width: 100px;
   }
@@ -204,6 +184,9 @@ figure img {
   }
 }
 @media (max-width: 500px) {
+  article { padding: 12px 5px; }
+  main, .scroll-articles { padding: 15px 2vw 5px 2vw; }
+  /* PAGE ONE */
   .one-page aside {
     position: static;
     width: 100%;
@@ -219,74 +202,8 @@ figure img {
     padding: 5px;
     overflow-y: visible;
   }
-}
-
-/* --- STEP THREE: PAGE ONE ABSOLUTE LAYOUT --- */
-.one-page #wrapper {
-  position: relative;
-  margin-top: 120px; /* height of fixed header */
-  margin-bottom: 80px; /* height of fixed footer */
-  min-height: calc(100vh - 200px);
-}
-.one-page aside {
-  position: absolute;
-  top: 0; left: 0;
-  width: 220px;
-  bottom: 0;
-  background: #333;
-  color: #fff;
-  padding: 24px 12px;
-  box-sizing: border-box;
-  border-right: 2px solid #222;
-  z-index: 2;
-}
-.one-page .scroll-articles {
-  position: absolute;
-  top: 0; left: 220px; right: 0; bottom: 0;
-  padding: 16px 24px;
-  overflow-y: auto;
-  background: #fafafa;
-  z-index: 1;
-}
-.one-page article {
-  background: #fff;
-  margin-bottom: 32px;
-  padding: 18px 16px;
-  border-radius: 7px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  overflow: auto;
-}
-.one-page article header h2 {
-  margin-top: 0;
-  font-size: 1.4em;
-}
-.one-page figure img {
-  max-width: 100%;
-  display: block;
-  margin: 0 auto 12px auto;
-  border-radius: 4px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-}
-@media (max-width: 800px) {
-  .one-page aside {
-    width: 90px;
-    padding: 8px 4px;
-  }
-  .one-page .scroll-articles {
-    left: 90px;
-    padding: 6px 8px;
-  }
-}
-@media (max-width: 600px) {
-  .one-page aside, .one-page .scroll-articles {
-    position: static;
-    width: 100%;
-    left: 0;
-    right: 0;
-    padding: 4px 2vw;
-  }
   .one-page #wrapper {
-    margin-top: 70px;
-    margin-bottom: 48px;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 }
