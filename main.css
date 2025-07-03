@@ -372,3 +372,94 @@ figure img {
     padding-bottom: 0;
   }
 }
+
+/* --- PAGE FIVE: INLINE-BLOCK PHOTO GALLERY --- */
+.five-page #wrapper {
+  margin-top: 100px;
+  margin-bottom: 80px;
+  min-height: calc(100vh - 180px);
+  background: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.five-page aside {
+  display: inline-block;
+  vertical-align: top;
+  width: 18%;
+  min-width: 130px;
+  max-width: 220px;
+  background: #333;
+  color: #fff;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  border-right: 2px solid #222;
+  font-size: 1rem;
+}
+.five-page .gallery-main {
+  display: inline-block;
+  width: 82%;
+  vertical-align: top;
+  padding: 20px 2vw 10px 2vw;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+.five-page .gallery-main header h2 {
+  margin-top: 0;
+}
+.five-gallery {
+  text-align: center;
+  font-size: 0;
+  margin: 0 auto;
+  padding: 0;
+}
+.five-gallery figure {
+  display: inline-block;
+  width: 180px;
+  height: 180px;
+  margin: 12px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.14);
+  vertical-align: top;
+  position: relative;
+  overflow: hidden;
+}
+.five-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: filter .2s;
+  border-radius: 8px;
+}
+.five-gallery figure:hover img,
+.five-gallery figure:focus-within img {
+  filter: brightness(0.7) blur(1px);
+}
+.five-gallery figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  background: rgba(34,34,34,0.7);
+  color: #ffe375;
+  padding: 12px 0 8px 0;
+  font-size: 1.08em;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.five-gallery figure:hover figcaption,
+.five-gallery figure:focus-within figcaption {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .five-page aside { width: 100%; max-width: 100%; display: block; border-right: none; border-bottom: 2px solid #222; }
+  .five-page .gallery-main { width: 100%; display: block; }
+}
+@media (max-width: 600px) {
+  .five-gallery figure { width: 44vw; height: 44vw; min-width: 110px; min-height: 110px; max-width: 180px; max-height: 180px; }
+  .five-page .gallery-main { padding: 5px 0; }
+}
