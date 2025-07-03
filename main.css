@@ -26,7 +26,7 @@ body {
 /* ==== HEADER & FOOTER ==== */
 header {
   width: 100%;
-  height: 68px; /* or whatever your header height is */
+  height: 68px;
   position: fixed;
   top: 0; left: 0;
   background: #3c405b;
@@ -87,26 +87,12 @@ ul, ol { margin: 1em 0 1em 1.5em; }
 figure { margin-bottom: 1em; }
 figcaption { text-align: center; font-size: 0.93em; color: #666; margin-top: 0.3em; }
 
-/* ==== WRAPPER GLOBAL ==== */
+/* ==== UNIVERSAL WRAPPER WITH SIDEBAR ==== */
 #wrapper, #wrapper-one, #wrapper-two, #wrapper-three, #wrapper-four, #wrapper-five {
-  max-width: 1200px;
-  min-height: calc(100vh - 123px); /* header + footer */
-  margin: 68px auto 55px auto; /* header height + footer height */
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 18px rgba(60,64,91,0.06);
-  padding: 24px;
-  box-sizing: border-box;
-  position: relative;
-  overflow: visible;
-}
-
-/* ==== HOMEPAGE SIDEBAR LAYOUT ==== */
-#wrapper {
   display: flex;
   flex-direction: row;
-  min-height: calc(100vh - 123px);
-  margin: 68px auto 55px auto;
+  min-height: calc(100vh - 123px); /* header + footer */
+  margin: 68px auto 55px auto;      /* header + footer heights */
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 18px rgba(60,64,91,0.06);
@@ -116,62 +102,71 @@ figcaption { text-align: center; font-size: 0.93em; color: #666; margin-top: 0.3
   position: relative;
   overflow: visible;
 }
-#wrapper aside {
+#wrapper aside,
+#wrapper-one aside,
+#wrapper-two aside,
+#wrapper-three aside,
+#wrapper-four aside,
+#wrapper-five aside {
   width: 200px;
   min-width: 140px;
   background: #e0e1dd;
   border-radius: 7px;
   padding: 16px 8px;
 }
-#wrapper main {
+#wrapper main,
+#wrapper-one main,
+#wrapper-two main,
+#wrapper-three main,
+#wrapper-four main,
+#wrapper-five main {
   flex: 1;
   padding-left: 24px;
 }
 
-/* ==== NAVIGATION (Common) ==== */
-nav ul {
+/* ==== NAVIGATION (Sidebar) ==== */
+aside nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
   margin: 0 0 1.5em 0;
   padding: 0;
 }
-nav ul li { display: inline-block; }
-nav a {
+aside nav ul li { display: block; }
+aside nav a {
   color: #3c405b; background: #e0e1dd;
   padding: 7px 16px;
   border-radius: 4px;
   font-weight: bold;
   transition: background .17s, color .17s;
+  display: block;
 }
-nav a[aria-current="page"], nav a:hover, nav a:focus {
+aside nav a[aria-current="page"], aside nav a:hover, aside nav a:focus {
   background: #e07a5f;
   color: #fff;
 }
 
-/* === PAGE ONE: Fixed/Absolute layout === */
+/* ==== NAVIGATION (Top, for non-sidebar layouts) ==== */
+nav ul:not(:has(li a[aria-current="page"])) {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* === PAGE ONE: (if you want absolute layout, override here as needed) === */
+/* 
 #wrapper-one {
   position: relative;
-  min-height: calc(100vh - 123px);
 }
 #wrapper-one aside {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
   height: 100%;
-  padding-top: 10px;
   z-index: 2;
-  background: #e0e1dd;
-  border-radius: 7px;
-}
-#wrapper-one nav ul {
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  display: flex;
 }
 #wrapper-one .scroll-articles {
   position: absolute;
@@ -183,91 +178,36 @@ nav a[aria-current="page"], nav a:hover, nav a:focus {
   max-height: 100%;
   padding-right: 10px;
 }
-#wrapper-one article {
-  margin-bottom: 2em;
-  background: #f9fafb;
-  border-radius: 7px;
-  padding: 1.4em 1.2em;
-  box-shadow: 0 1px 8px rgba(60,64,91,0.08);
-  overflow: auto;
-}
+*/
 
-/* === PAGE TWO: Float layout (pixels) === */
-#wrapper-two { min-height: calc(100vh - 123px); }
+/* === PAGE TWO: (if you want float layout, override here as needed) === */
+/*
 #wrapper-two aside {
   float: left;
-  width: 200px;
   margin-right: 20px;
-  background: #e0e1dd;
-  border-radius: 7px;
-}
-#wrapper-two nav ul {
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  display: flex;
 }
 #wrapper-two .two-articles {
   float: left;
   width: calc(100% - 220px);
-}
-#wrapper-two .two-articles article {
-  margin-bottom: 2em;
-  background: #f9fafb;
-  border-radius: 7px;
-  padding: 1.4em 1.2em;
-  box-shadow: 0 1px 8px rgba(60,64,91,0.08);
-  overflow: auto;
-}
-#wrapper-two .two-articles img {
-  float: left;
-  margin-right: 12px;
-  margin-bottom: 6px;
-  width: 120px;
-  max-width: 45%;
 }
 #wrapper-two::after, .clearfix {
   content: "";
   display: table;
   clear: both;
 }
-#wrapper-two footer {
-  clear: both;
-}
+*/
 
-/* === PAGE THREE: Responsive floats (percents) === */
+/* === PAGE THREE: (if you want responsive floats, override here as needed) === */
+/*
 #wrapper-three aside {
   float: left;
   width: 24%;
   min-width: 160px;
   margin-right: 2%;
-  background: #e0e1dd;
-  border-radius: 7px;
-}
-#wrapper-three nav ul {
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  display: flex;
 }
 #wrapper-three .three-articles {
   float: left;
   width: 74%;
-}
-#wrapper-three .three-articles article {
-  margin-bottom: 2em;
-  background: #f9fafb;
-  border-radius: 7px;
-  padding: 1.4em 1.2em;
-  box-shadow: 0 1px 8px rgba(60,64,91,0.08);
-  overflow: auto;
-}
-#wrapper-three .three-articles img {
-  float: left;
-  margin-right: 3%;
-  margin-bottom: 6px;
-  width: 49%;
-  max-width: 230px;
 }
 #wrapper-three::after, .clearfix { content: ""; display: table; clear: both; }
 @media (max-width: 900px) {
@@ -277,67 +217,31 @@ nav a[aria-current="page"], nav a:hover, nav a:focus {
     margin-right: 0;
   }
 }
+*/
 
-/* === PAGE FOUR: Inline-block layout (percents) === */
+/* === PAGE FOUR: (if you want inline-block, override here as needed) === */
+/*
 #wrapper-four {
-  font-size: 0; /* Remove inline-block whitespace gap */
+  font-size: 0; 
+}
+#wrapper-four aside, #wrapper-four .four-articles {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1rem;
 }
 #wrapper-four aside {
-  display: inline-block;
-  vertical-align: top;
   width: 22%;
   min-width: 150px;
-  font-size: 1rem;
-  background: #e0e1dd;
-  border-radius: 7px;
-}
-#wrapper-four nav ul {
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  display: flex;
 }
 #wrapper-four .four-articles {
-  display: inline-block;
-  vertical-align: top;
   width: 77%;
-  font-size: 1rem;
 }
-#wrapper-four .four-articles article {
-  margin-bottom: 2em;
-  background: #f9fafb;
-  border-radius: 7px;
-  padding: 1.4em 1.2em;
-  box-shadow: 0 1px 8px rgba(60,64,91,0.08);
-}
+*/
 
-/* === PAGE FIVE: Gallery (inline-block with object-fit, overlay) === */
-#wrapper-five {
-  font-size: 0;
-}
-#wrapper-five aside {
-  display: inline-block;
-  vertical-align: top;
-  width: 185px;
-  min-width: 120px;
-  font-size: 1rem;
-  background: #e0e1dd;
-  border-radius: 7px;
-}
-#wrapper-five nav ul {
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  display: flex;
-}
+/* === PAGE FIVE: GALLERY === */
 #wrapper-five .gallery-main {
-  display: inline-block;
-  vertical-align: top;
-  width: calc(100% - 195px);
+  width: 100%;
   font-size: 1rem;
-}
-#wrapper-five .gallery-main header {
-  margin-bottom: 1.2em;
 }
 #wrapper-five .five-gallery {
   width: 100%;
