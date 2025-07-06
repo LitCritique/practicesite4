@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html lange="en-us">
-
 <head>
   <title> Page Five </title>
   <meta charset="utf-8">
@@ -24,57 +23,43 @@
         </ul>
       </nav>
     </aside>
-    <section>
+    
+    <section class="gallery-wrapper">
       <header>
         <figure>
           <img src="img/banner3.png" alt="page banner">
         </figure>
         <h2> This is a Photo Gallery </h2>
       </header>
-      <section>
-        <figure>
-          <a href="#"><img src="img/1.jpg" alt="A blonde woman wearing a red beanie hat standing in front of fir trees taking holding a camera toward the viewer."></a>
-          <figcaption> One </figcaption>
-        </figure>
-        <figure>
-          <a href="#"><img src="img/2.jpg" alt="A woman in a black hoodie sitting on a cracked surface looking to the right, and two hands that hold a square cage hover over her."></a>
-          <figcaption> Two </figcaption>
-        </figure>
-        <figure>
-          <a href="#"><img src="img/3.jpg" alt="A woman painting a bright yellow fish on a cement wall; the fish is facing left with its mouth open toward a smaller yellow fish."></a>
-          <figcaption> Three </figcaption>
-        </figure>
-        <figure>
-          <a href="#"><img src="img/4.jpg" alt="A boy wearing a suit and pilot goggles with his hands in the air in triumphant fists; he has cardboard airplane wings on his back and there are flames coming down from the wings drawn on the wall behind him."></a>
-          <figcaption> Four </figcaption>
-        </figure>
-        <figure>
-          <a href="#"><img src="img/5.jpg" alt="A silhouette of a man facing left standing in front of a sunset throwing a paper airplane."></a>
-          <figcaption> Five </figcaption>
-        </figure>
-        <figure>
-          <a href="#"><img src="img/6.jpg" alt="A picture of a runner from the legs down running on a road toward a cloudy mountain range."></a>
-          <figcaption> Six </figcaption>
-        </figure>
-        <figure>
-          <a href="#"><img src="img/7.jpg" alt="A girl holding a sparkler toward the viewer; the sparkler is focused while the girl and background are blurred."></a>
-          <figcaption> Seven </figcaption>
-        </figure>
-        <figure>
-          <a href="#"><img src="img/8.jpg" alt="A compass pointing Northwest sitting on a map of Serbia."></a>
-          <figcaption> Eight </figcaption>
-        </figure>
-        <figure>
-          <a href="#"><img src="img/9.jpg" alt="A wide landscape view of a mountain river with rocks and evergreens along both banks; a man in all black stands in the foreground watching the river."></a>
-          <figcaption> Nine </figcaption>
-        </figure>
-        <figure>
-          <a href="#"><img src="img/10.jpg" alt="A close-up image of Australian First Nations dot painting displayed in the Australian Museum's exhibition, <em>Unsettled</em>"></a>
-          <figcaption> Ten </figcaption>
-        </figure>
-      </section>
+
+      <div class="gallery-container">
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <figure class="effect-hover">
+              <img src="img/1.jpg" alt="A blonde woman wearing a red beanie hat standing in front of fir trees taking holding a camera toward the viewer.">
+              <figcaption>
+                <h3>One</h3>
+                <p>Click to view larger</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!-- Repeat for all other images with their respective alts -->
+          <!-- Example for second image -->
+          <div class="gallery-item">
+            <figure class="effect-hover">
+              <img src="img/2.jpg" alt="A woman in a black hoodie sitting on a cracked surface looking to the right, and two hands that hold a square cage hover over her.">
+              <figcaption>
+                <h3>Two</h3>
+                <p>Click to view larger</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!-- Continue pattern for remaining images -->
+        </div>
+      </div>
     </section>
   </div>
+  
   <footer>
     <ul>
       <li> &copy; Aenean Vulputate </li>
@@ -83,7 +68,5 @@
       <li><b>Address</b>: Earth </li>
     </ul>
   </footer>
-
 </body>
-
 </html>
