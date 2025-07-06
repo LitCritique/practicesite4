@@ -44,7 +44,7 @@ footer ul li b {
 
 nav ul {
   list-style: none;
-  padding: 45px;
+  padding: 20px;
   margin: 0;
 }
 
@@ -84,6 +84,7 @@ aside.one {
 aside.two {
   float: left;
   width: 160px;
+  padding: 45px;
   border-right: 3px solid #F2987A;
 }
 
