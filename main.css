@@ -130,27 +130,26 @@ aside.five {
   overflow-y: auto;
 }
 
-/* Dynamic Gallery Style */
-.gallery-wrapper {
+.five ~ .gallery-wrapper {
   margin-left: 160px;
   padding: 20px;
   width: calc(100% - 160px);
 }
 
-.gallery-container {
+.five ~ .gallery-wrapper .gallery-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 25px;
 }
 
-.gallery-grid {
+.five ~ .gallery-wrapper .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding: 15px;
 }
 
-.gallery-item {
+.five ~ .gallery-wrapper .gallery-item {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
@@ -158,7 +157,7 @@ aside.five {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-.effect-hover {
+.five ~ .gallery-wrapper .effect-hover {
   position: relative;
   float: left;
   overflow: hidden;
@@ -169,7 +168,7 @@ aside.five {
   cursor: pointer;
 }
 
-.effect-hover img {
+.five ~ .gallery-wrapper .effect-hover img {
   position: relative;
   display: block;
   min-height: 100%;
@@ -181,12 +180,12 @@ aside.five {
   transform: scale(1.12);
 }
 
-.effect-hover:hover img {
+.five ~ .gallery-wrapper .effect-hover:hover img {
   opacity: 0.5;
   transform: scale(1);
 }
 
-.effect-hover figcaption {
+.five ~ .gallery-wrapper .effect-hover figcaption {
   padding: 2em;
   text-transform: uppercase;
   font-size: 1.25em;
@@ -199,12 +198,7 @@ aside.five {
   height: 100%;
 }
 
-.effect-hover figcaption::before,
-.effect-hover figcaption::after {
-  pointer-events: none;
-}
-
-.effect-hover h3 {
+.five ~ .gallery-wrapper .effect-hover h3 {
   position: relative;
   overflow: hidden;
   padding: 0.5em 0;
@@ -214,7 +208,7 @@ aside.five {
   transition: opacity 0.35s, transform 0.35s;
 }
 
-.effect-hover p {
+.five ~ .gallery-wrapper .effect-hover p {
   padding: 1em 0;
   opacity: 0;
   color: #fff;
@@ -222,25 +216,25 @@ aside.five {
   transition: opacity 0.35s, transform 0.35s;
 }
 
-.effect-hover:hover h3,
-.effect-hover:hover p {
+.five ~ .gallery-wrapper .effect-hover:hover h3,
+.five ~ .gallery-wrapper .effect-hover:hover p {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
-
+/* Media Query for Page Five Gallery */
 @media screen and (max-width: 768px) {
-  .gallery-wrapper {
+  .five ~ .gallery-wrapper {
     margin-left: 0;
     width: 100%;
   }
 
-  .gallery-grid {
+  .five ~ .gallery-wrapper .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 15px;
   }
 
-  .effect-hover figcaption {
+  .five ~ .gallery-wrapper .effect-hover figcaption {
     padding: 1em;
   }
 }
