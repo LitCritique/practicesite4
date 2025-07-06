@@ -44,7 +44,7 @@ footer ul li b {
 
 nav ul {
   list-style: none;
-  padding: 20px;
+  padding: 45px;
   margin: 0;
 }
 
@@ -57,14 +57,13 @@ nav ul li a {
   color: #C78880;
 }
 
-/* Common aside base styles */
 aside {
   height: calc(100vh - 170px);
   background: white;
   overflow-y: auto;
 }
 
-/* Page One - Fixed Position Layout */
+/* Page One  */
 aside.one {
   position: fixed;
   left: 0;
@@ -80,11 +79,10 @@ aside.one {
   overflow-y: auto;
 }
 
-/* Page Two - Float Layout */
+/* Page Two  */
 aside.two {
   float: left;
   width: 160px;
-  padding: 45px;
   border-right: 3px solid #F2987A;
 }
 
@@ -94,20 +92,20 @@ aside.two {
   padding: 20px;
 }
 
-/* Page Three - Responsive Layout */
+/* Page Three */
 aside.three {
   float: left;
-  width: 160px;
+  width: 15%;
   border-right: 2px solid #F2987A;
 }
 
 .articles3 {
   float: left;
-  width: calc(100% - 160px);
+  width: 75%;
   padding: 2%;
 }
 
-/* Page Four - Inline-block Layout */
+/* Page Four */
 aside.four {
   display: inline-block;
   width: 15%;
@@ -130,10 +128,11 @@ aside.five {
   border-right: 3px solid #F2987A;
 }
 
-.gallery-wrapper header figure {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+.banner-figure img {
+    width: 70%; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    display: block;
 }
 
 .gallery-wrapper header figure img {
@@ -177,7 +176,7 @@ aside.five {
   justify-content: center;
 }
 
-/* Utility Classes */
+
 .clearfix::after {
   content: "";
   display: table;
@@ -307,7 +306,7 @@ aside.five {
   margin: 0 auto;
 }
 
-/* Media Queries */
+
 @media screen and (max-width: 768px) {
   .gallery-wrapper {
     margin-left: 0;
