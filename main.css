@@ -64,7 +64,7 @@ aside.one {
 
 aside.two {
     float: left;
-  top: 80px;
+  top: 80px
     width: 160px;
     background: white;
     border-right: 1px solid #eee;
@@ -79,7 +79,8 @@ aside.two {
 /* Page three*/
 aside.three {
     float: left;
-    width: 25%;
+  top: 500%;
+    width: 1000%;
     background: white;
     border-right: 1px solid #eee;
 }
