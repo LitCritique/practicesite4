@@ -5,7 +5,7 @@ header.title {
   left: 0;
   width: 100%;
   height: 70px;
-  background: white;
+  background: #CDF7F1;
   z-index: 1000;
   padding: 10px;
 }
@@ -15,7 +15,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 90px;
-  background: white;
+  background: #CDF7F1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,7 +31,7 @@ footer {
 
 nav ul {
   list-style: none;
-  padding: 0;
+  padding: 45px;
   margin: 0;
 }
 
@@ -41,7 +41,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: teal;
+  color: #C78880;
 }
 
 /* Page One */
@@ -52,7 +52,7 @@ aside.one {
   width: 160px;
   height: calc(100vh - 170px);
   background: white;
-  border-right: 1px solid #eee;
+  border-right: 2px solid #A65B84;
   overflow-y: auto;
 }
 
@@ -69,7 +69,7 @@ aside.two {
   width: 160px;
   height: calc(100vh - 170px);
   background: white;
-  border-right: 1px solid #eee;
+  border-right: 3px solid #F2987A;
   overflow-y: auto;
 }
 
@@ -85,7 +85,7 @@ aside.three {
   top: 100%;
   width: 15%;
   background: white;
-  border-right: 1px solid #eee;
+  border-right: 2px solid #F2987A;
   height: calc(100vh - 170px);
   overflow-y: auto;
 }
@@ -102,7 +102,7 @@ aside.four {
   width: 15%;
   vertical-align: top;
   background: white;
-  border-right: 1px solid #eee;
+  border-right: 3px solid #F2987A;
   overflow-y: auto;
 }
 
@@ -120,13 +120,13 @@ aside.four {
 }
 
 /*Page Five*/
-/*Page Five*/
+
 aside.five {
   display: inline-block;
-  width: 160px;
+  width: 260px;
   vertical-align: top;
   background: white;
-  border-right: 1px solid #eee;
+  border-right: 3px solid #F2987A;
   height: calc(100vh - 170px);
   overflow-y: auto;
 }
@@ -158,7 +158,7 @@ aside.five {
   overflow: hidden;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 25px 15px rgba(199, 136, 128, 0.2);
   height: 300px;
   width: 100%;
   display: flex;
@@ -207,11 +207,11 @@ aside.five {
 }
 
 .card-front {
-  background-color: #fff;
+  background-color: #C78880;
 }
 
 .card-back {
-  background-color: #ffffff;
+  background-color: #F7E7D1;
   transform: rotateY(180deg);
   padding: 20px;
   display: flex;
@@ -223,7 +223,7 @@ aside.five {
 
 /* Back content styles */
 .back-content {
-  color: #333;
+  color: #C78880;
   text-align: center;
   padding: 20px;
   width: 100%;
@@ -253,7 +253,7 @@ aside.five {
   width: 100%;
   height: 100%;
   margin: 0;
-  background: #000;
+  background: black;
   text-align: center;
   cursor: pointer;
   display: flex;
