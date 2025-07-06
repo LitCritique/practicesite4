@@ -18,7 +18,6 @@ h2 {
 	display: block;
 	margin: auto;
 	width: 80%;
-  position: fixed;
 	}
 
 header.title {
@@ -47,11 +46,12 @@ article {
 	float: none;
 	}
 
-article p:last-of-type {
+article p: last-of-type {
 	padding: 0 0 2em;
 	}
 
 /* Page One */
+
 .wrapperone {
   position: relative;
 }
@@ -63,7 +63,7 @@ article p:last-of-type {
 }
 .pageonearticleone {
   position: absolute;
-  width: 800px;
+  width: 600px;
   top: 25px;
   right: 75px;
   overflow: scroll;
@@ -71,7 +71,7 @@ article p:last-of-type {
 
 .pageonearticletwo {
   position: absolute;
-  width: 800px;
+  width: 600px;
   top: 4500px;
     right: 75px;
   overflow: scroll;
