@@ -1,17 +1,18 @@
-/* Global Modifications */
+/*Global Changes*/
+
 h1 {
-	padding: .3em .6em 1em;
+	padding: .2em .5em 1em;
 	}
 
 h2 {
-	padding: .3em;
+	padding: .2em;
 	text-align: center;
 	}
 
 .banner {
 	display: block;
 	margin: auto;
-	width: 85%;
+	width: 80%;
 	}
 
 header.title {
@@ -32,7 +33,8 @@ footer {
 	}
 
 #wrapper {
-	margin: 80px 0 105px 0;
+	margin-top: 80px;
+  margin-bottom:105px;
 	}
 
 article {
@@ -42,3 +44,29 @@ article {
 article p:last-of-type {
 	padding: 0 0 2em;
 	}
+
+/* Page One */
+.wrapperone {
+  position: relative;
+}
+
+#asideone {
+  position: fixed;
+  left: 10px;
+  width: 150px;
+}
+.pageonearticleone {
+  position: absolute;
+  width: 800px;
+  top: 25px;
+  right: 75px;
+  overflow: scroll;
+}
+
+.pageonearticletwo {
+  position: absolute;
+  width: 800px;
+  top: 4500px;
+    right: 75px;
+  overflow: scroll;
+}
