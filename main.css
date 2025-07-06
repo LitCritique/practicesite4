@@ -5,7 +5,7 @@ header.title {
   left: 0;
   width: 100%;
   height: 70px;
-  background: #CDF7F1;
+  background: linear-gradient(to left, #FAEABB 20%, #CDF7F1 80%);
   z-index: 1000;
   padding: 10px;
 }
@@ -15,29 +15,24 @@ footer {
   bottom: 0;
   width: 100%;
   height: 90px;
-  background-color: #fff;
-  background-image:
-    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-    linear-gradient(#eee .1em, transparent .1em);
-  background-size: 100% 1.2em;
+  background: linear-gradient(to right, #FAEABB 20%, #CDF7F1 80%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-    font-family: 'Garamond', serif; 
-  color: #A65B84; 
+  font-family: 'Garamond', serif;
+  color: #A65B84;
 }
-
 
 footer ul li {
   font-size: 18px;
-  color: #A65B84;
-   font-weight: normal;
+  color: #333;
+  font-weight: normal;
 }
 
 footer ul li b {
   font-weight: bold;
-  color: #F2987A; 
+  color: #000;
 }
 
 #wrapper {
@@ -62,33 +57,34 @@ nav ul li a {
   color: #C78880;
 }
 
-/* Page One */
+/* Common aside base styles */
+aside {
+  height: calc(100vh - 170px);
+  background: white;
+  overflow-y: auto;
+}
+
+/* Page One - Fixed Position Layout */
 aside.one {
   position: fixed;
   left: 0;
   top: 90px;
   width: 160px;
-  height: calc(100vh - 170px);
-  background: white;
   border-right: 2px solid #A65B84;
-  overflow-y: auto;
 }
 
 .articles1 {
   margin-left: 160px;
   padding: 20px;
+  width: calc(100% - 160px);
   overflow-y: auto;
 }
 
-/* Page Two */
+/* Page Two - Float Layout */
 aside.two {
   float: left;
-  top: 90px;
   width: 160px;
-  height: calc(100vh - 170px);
-  background: white;
   border-right: 3px solid #F2987A;
-  overflow-y: auto;
 }
 
 .articles2 {
@@ -97,15 +93,11 @@ aside.two {
   padding: 20px;
 }
 
-/* Page three*/
+/* Page Three - Responsive Layout */
 aside.three {
   float: left;
-  top: 100%;
   width: 15%;
-  background: white;
   border-right: 2px solid #F2987A;
-  height: calc(100vh - 170px);
-  overflow-y: auto;
 }
 
 .articles3 {
@@ -114,14 +106,12 @@ aside.three {
   padding: 2%;
 }
 
-/*Page four*/
+/* Page Four - Inline-block Layout */
 aside.four {
   display: inline-block;
   width: 15%;
   vertical-align: top;
-  background: white;
   border-right: 3px solid #F2987A;
-  overflow-y: auto;
 }
 
 .articles4 {
@@ -131,25 +121,14 @@ aside.four {
   padding: 2%;
 }
 
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/*Page Five*/
-
+/* Page Five - Gallery Layout */
 aside.five {
   display: inline-block;
   width: 260px;
   vertical-align: top;
-  background: white;
   border-right: 3px solid #F2987A;
-  height: calc(100vh - 170px);
-  overflow-y: auto;
 }
 
-/* Dynamic Gallery Style */
 .gallery-wrapper {
   margin-left: 160px;
   padding: 20px;
@@ -182,6 +161,56 @@ aside.five {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Utility Classes */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Gallery Effects */
+.effect-hover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: black;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.effect-hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.8;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.effect-hover:hover img {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+
+.effect-hover figcaption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  text-align: center;
+  z-index: 1;
 }
 
 /* Card Flip Styles */
@@ -239,7 +268,6 @@ aside.five {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Back content styles */
 .back-content {
   color: #C78880;
   text-align: center;
@@ -263,49 +291,6 @@ aside.five {
   color: #666;
   max-width: 90%;
   margin: 0 auto;
-}
-
-/* Effect Hover Styles */
-.effect-hover {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  background: black;
-  text-align: center;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.effect-hover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.8;
-  transition: opacity 0.35s, transform 0.35s;
-}
-
-.effect-hover:hover img {
-  opacity: 0.5;
-  transform: scale(1.1);
-}
-
-.effect-hover figcaption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  padding: 2em;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 1.25em;
-  text-align: center;
-  z-index: 1;
 }
 
 /* Media Queries */
