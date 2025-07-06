@@ -1,6 +1,6 @@
 /*Global Changes*/
 
-h1 {
+header h1: first-of-type {
 	padding-top: .2em;
   padding-left: .5em;
   padding-right: .5em;
