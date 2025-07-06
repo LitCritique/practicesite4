@@ -122,46 +122,125 @@ aside.four {
 /*Page Five*/
 aside.five {
   display: inline-block;
-  width: 160px;  /* or 15% if you prefer percentage */
+  width: 160px;
   vertical-align: top;
   background: white;
   border-right: 1px solid #eee;
   height: calc(100vh - 170px);
   overflow-y: auto;
 }
+
+/* Dynamic Gallery Style */
+.gallery-wrapper {
+  margin-left: 160px;
+  padding: 20px;
+  width: calc(100% - 160px);
+}
+
 .gallery-container {
-  text-align: center;
-  padding: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 15px;
 }
 
 .gallery-item {
-  display: inline-block;
-  width: 300px;  
-  margin: 5px;
-  vertical-align: top;
   position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-item img {
+.effect-hover {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 0;
   width: 100%;
-  height: 300px;  /* increased to match width for square images */
-  object-fit: cover;
-  object-position: center center;
+  background: #000;
+  text-align: center;
+  cursor: pointer;
 }
 
-.gallery-item figcaption {
+.effect-hover img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.35s, transform 0.35s;
+  transform: scale(1.12);
+}
+
+.effect-hover:hover img {
+  opacity: 0.5;
+  transform: scale(1);
+}
+
+.effect-hover figcaption {
+  padding: 2em;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  height: 100%;
 }
 
-.gallery-item:hover figcaption {
+.effect-hover figcaption::before,
+.effect-hover figcaption::after {
+  pointer-events: none;
+}
+
+.effect-hover h3 {
+  position: relative;
+  overflow: hidden;
+  padding: 0.5em 0;
+  color: #fff;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.effect-hover p {
+  padding: 1em 0;
+  opacity: 0;
+  color: #fff;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.effect-hover:hover h3,
+.effect-hover:hover p {
   opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+
+@media screen and (max-width: 768px) {
+  .gallery-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .effect-hover figcaption {
+    padding: 1em;
+  }
 }
