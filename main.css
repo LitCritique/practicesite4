@@ -96,13 +96,13 @@ aside.two {
 /* Page Three - Responsive Layout */
 aside.three {
   float: left;
-  width: 15%;
+  width: 160px;
   border-right: 2px solid #F2987A;
 }
 
 .articles3 {
   float: left;
-  width: 75%;
+  width: calc(100% - 160px);
   padding: 2%;
 }
 
