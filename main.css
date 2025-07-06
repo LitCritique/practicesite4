@@ -233,3 +233,95 @@ aside.three {
         margin-bottom: 6%;
     }
 }
+
+
+/* Page Four */
+aside.four {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    padding: 2%;
+    background: white;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.articles4 {
+    display: inline-block;
+    vertical-align: top;
+    width: 75%;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+
+#wrapper {
+    font-size: 0; 
+}
+
+
+aside.four,
+.articles4 {
+    font-size: 16px; 
+}
+
+.articles4 article {
+    width: 100%;
+    margin-bottom: 4%;
+}
+
+.articles4 figure {
+    width: 100%;
+    margin: 0 0 2% 0;
+}
+
+.articles4 figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 2%;
+}
+
+.articles4 h2 {
+    margin: 2% 0;
+}
+
+.articles4 p {
+    line-height: 1.4;
+    margin-bottom: 2%;
+}
+
+@media screen and (max-width: 768px) {
+    aside.four {
+        display: block;
+        width: 100%;
+        padding: 4%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .articles4 {
+        display: block;
+        width: 100%;
+        padding: 4%;
+    }
+
+    .articles4 figure img {
+        margin-bottom: 4%;
+    }
+
+    .articles4 p {
+        margin-bottom: 4%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    aside.four,
+    .articles4 {
+        padding: 5%;
+    }
+
+    .articles4 article {
+        margin-bottom: 6%;
+    }
+}
