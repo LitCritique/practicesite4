@@ -129,6 +129,18 @@ aside.five {
   border-right: 3px solid #F2987A;
 }
 
+.gallery-wrapper header figure {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-wrapper header figure img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
 .gallery-wrapper {
   margin-left: 160px;
   padding: 20px;
