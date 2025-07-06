@@ -63,7 +63,7 @@ aside {
   height: calc(100vh - 170px);
   background: white;
   overflow-y: auto;
-  width: 160px;
+  width: 180px;
   border-right: 2px solid #F2987A;
 }
 
@@ -72,7 +72,7 @@ aside.one {
   position: fixed;
   left: 0;
   top: 90px;
-  width: 160px;
+  width: 180px;
 }
 
 .articles1 {
@@ -85,7 +85,7 @@ aside.one {
 /* Page Two  */
 aside.two {
   float: left;
-  width: 160px;
+  width: 180px;
 }
 
 .articles2 {
@@ -97,7 +97,7 @@ aside.two {
 /* Page Three */
 aside.three {
   float: left;
-  width: 160px;
+  width: 180px;
 }
 
 .articles3 {
@@ -110,7 +110,7 @@ aside.three {
 aside.four {
   display: inline-block;
   vertical-align: top;
-  width: 160px;
+  width: 180px;
 }
 
 .articles4 {
@@ -124,7 +124,7 @@ aside.four {
 aside.five {
   display: inline-block;
   vertical-align: top;
-  width: 160px;
+  width: 180px;
 }
 
 .banner-figure img {
