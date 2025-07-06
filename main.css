@@ -6,10 +6,10 @@ header.title {
 	height: 80px;
 	width: 100%;
 	background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-	float: none;
+   z-index: 1000; 
 	}
 	
 footer {
@@ -18,27 +18,21 @@ footer {
 	height: 90px;
 	width: 100%;
 	background: #fff;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0); 
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000; 
 	}
 
 #wrapper {
 	margin-top: 80px;
   margin-bottom: 90px;
-  padding: 1px;
+  padding: 0;
+  position: relative;
+   z-index: 1;
  	}
 
-article {
-	padding-bottom: var;
-  line-height: 1.4;
-	}
-
-article p:last-of-type {
-	padding-bottom: var;
-  line-height: 1.6;
-	}
 
 /* Page One */
 
@@ -46,35 +40,36 @@ aside.one {
  position: fixed;
   left: 0;
   top: 80px;
-  width: 90px;
+  width: 160px;
   height: calc(100vh - 80px - 90px);
   padding: 16px;
+  overflow-y: scroll;
+  background: white;
   overflow: scroll;
+  border-right: 1px solid #eee;
+    z-index: 100;
 }
 
- 
-}
 div.articles1 {
   position: relative;
-  margin-left: 90px;
-  height: calc(80vh - 90px);
-  max-width: 1000px;
-  padding: 16px;
-  overflow: scroll;
+  margin-left: 160px;
+  padding: 40px;
+  min-height: calc(100vh - 170px);
+  overflow-y: scroll;
   scrollbar-width: thin;
+  z-index: 1;
 }
-@media (max-width: 768px) {
-  aside.one {
-    position: static;
-    width: 100%;
-    height: auto;
-  }
-  
-  div.articles1 {
-    margin-left: 0;
-    width: 100%;
-  }
+
+
+article {
+    padding-bottom: 32px;  
+    line-height: 1.4;
 }
+
+article p:last-of-type {
+    padding-bottom: 16px;
+}
+
 
 /* Page Two */
 #aside.two {
