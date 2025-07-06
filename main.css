@@ -63,7 +63,6 @@ aside.one {
 }
 
 /* Page Two */
-
 aside.two {
   float: left;
   top: 90px;
@@ -83,7 +82,7 @@ aside.two {
 /* Page three*/
 aside.three {
   float: left;
-  top: 563%;
+  top: 100%;
   width: 15%;
   background: white;
   border-right: 1px solid #eee;
@@ -113,12 +112,14 @@ aside.four {
   vertical-align: top;
   padding: 2%;
 }
+
 .clearfix::after {
   content: "";
   display: table;
   clear: both;
 }
 
+/*Page Five*/
 /*Page Five*/
 aside.five {
   display: inline-block;
@@ -130,111 +131,186 @@ aside.five {
   overflow-y: auto;
 }
 
-.five ~ .gallery-wrapper {
+/* Dynamic Gallery Style */
+.gallery-wrapper {
   margin-left: 160px;
   padding: 20px;
   width: calc(100% - 160px);
 }
 
-.five ~ .gallery-wrapper .gallery-container {
+.gallery-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 25px;
 }
 
-.five ~ .gallery-wrapper .gallery-grid {
+.gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding: 15px;
+  align-items: center;
+  justify-items: center;
 }
 
-.five ~ .gallery-wrapper .gallery-item {
+.gallery-item {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.five ~ .gallery-wrapper .effect-hover {
+/* Card Flip Styles */
+.card-flip {
   position: relative;
-  float: left;
-  overflow: hidden;
-  margin: 0;
   width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-flip:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front {
+  background-color: #fff;
+}
+
+.card-back {
+  background-color: #ffffff;
+  transform: rotateY(180deg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Back content styles */
+.back-content {
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-content h3 {
+  margin-bottom: 15px;
+  color: teal;
+}
+
+.back-content p {
+  font-size: 0.9em;
+  line-height: 1.5;
+  color: #666;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Effect Hover Styles */
+.effect-hover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   background: #000;
   text-align: center;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.five ~ .gallery-wrapper .effect-hover img {
-  position: relative;
-  display: block;
-  min-height: 100%;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  opacity: 0.8;
-  transition: opacity 0.35s, transform 0.35s;
-  transform: scale(1.12);
-}
-
-.five ~ .gallery-wrapper .effect-hover:hover img {
-  opacity: 0.5;
-  transform: scale(1);
-}
-
-.five ~ .gallery-wrapper .effect-hover figcaption {
-  padding: 2em;
-  text-transform: uppercase;
-  font-size: 1.25em;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
+.effect-hover img {
   width: 100%;
   height: 100%;
-}
-
-.five ~ .gallery-wrapper .effect-hover h3 {
-  position: relative;
-  overflow: hidden;
-  padding: 0.5em 0;
-  color: #fff;
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.8;
   transition: opacity 0.35s, transform 0.35s;
 }
 
-.five ~ .gallery-wrapper .effect-hover p {
-  padding: 1em 0;
-  opacity: 0;
+.effect-hover:hover img {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+
+.effect-hover figcaption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 2em;
   color: #fff;
-  transform: translate3d(0, 20px, 0);
-  transition: opacity 0.35s, transform 0.35s;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  text-align: center;
+  z-index: 1;
 }
 
-.five ~ .gallery-wrapper .effect-hover:hover h3,
-.five ~ .gallery-wrapper .effect-hover:hover p {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-/* Media Query for Page Five Gallery */
+/* Media Queries */
 @media screen and (max-width: 768px) {
-  .five ~ .gallery-wrapper {
+  .gallery-wrapper {
     margin-left: 0;
     width: 100%;
   }
 
-  .five ~ .gallery-wrapper .gallery-grid {
+  .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 15px;
   }
 
-  .five ~ .gallery-wrapper .effect-hover figcaption {
+  .gallery-item {
+    height: 250px;
+  }
+
+  .effect-hover figcaption {
     padding: 1em;
+  }
+
+  .back-content {
+    font-size: 0.9em;
   }
 }
