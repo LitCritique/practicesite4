@@ -82,7 +82,7 @@ aside.two {
 aside.three {
     float: left;
   top: 500%;
-    width: 25%;
+    width: 15%;
     background: white;
     border-right: 1px solid #eee;
     height: calc(100vh - 170px);
