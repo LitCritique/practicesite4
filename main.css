@@ -15,11 +15,29 @@ footer {
   bottom: 0;
   width: 100%;
   height: 90px;
-  background: #CDF7F1;
+  background-color: #fff;
+  background-image:
+    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+    font-family: 'Garamond', serif; 
+  color: #A65B84; 
+}
+
+
+footer ul li {
+  font-size: 18px;
+  color: #A65B84;
+   font-weight: normal;
+}
+
+footer ul li b {
+  font-weight: bold;
+  color: #F2987A; 
 }
 
 #wrapper {
