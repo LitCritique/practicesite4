@@ -36,7 +36,7 @@ nav ul {
 }
 
 nav ul li {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 nav ul li a {
@@ -120,6 +120,15 @@ aside.four {
 }
 
 /*Page Five*/
+aside.five {
+  display: inline-block;
+  width: 160px;  /* or 15% if you prefer percentage */
+  vertical-align: top;
+  background: white;
+  border-right: 1px solid #eee;
+  height: calc(100vh - 170px);
+  overflow-y: auto;
+}
 .gallery-container {
   text-align: center;
   padding: 10px;
@@ -127,7 +136,7 @@ aside.four {
 
 .gallery-item {
   display: inline-block;
-  width: calc(33.33% - 20px);
+  width: 300px;  
   margin: 5px;
   vertical-align: top;
   position: relative;
@@ -136,7 +145,7 @@ aside.four {
 
 .gallery-item img {
   width: 100%;
-  height: 100px;
+  height: 300px;  /* increased to match width for square images */
   object-fit: cover;
   object-position: center center;
 }
@@ -155,41 +164,4 @@ aside.four {
 
 .gallery-item:hover figcaption {
   opacity: 1;
-}
-
-@media screen and (max-width: 768px) {
-  aside.three,
-  .articles3 {
-    width: 100%;
-    float: none;
-  }
-
-  aside.four,
-  .articles4 {
-    width: 100%;
-    display: block;
-  }
-
-  .gallery-item {
-    width: calc(50% - 20px);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .gallery-item {
-    width: calc(100% - 20px);
-  }
-}
-
-article {
-  margin-bottom: 30px;
-}
-
-figure img {
-  max-width: 100%;
-  height: auto;
-}
-
-p {
-  margin-bottom: 1em;
 }
