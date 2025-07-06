@@ -7,6 +7,7 @@ header.title {
     height: 80px;
     background: white;
     z-index: 1000;
+    padding: 20px;
 }
 
 footer {
@@ -25,6 +26,7 @@ footer {
     margin-top: 80px;
     margin-bottom: 90px;
     position: relative;
+    display: flex;
 }
 
 nav ul {
@@ -64,7 +66,7 @@ aside.one {
 
 aside.two {
     float: left;
-  top: 80px
+  top: 80px;
     width: 160px;
     background: white;
     border-right: 1px solid #eee;
@@ -80,9 +82,10 @@ aside.two {
 aside.three {
     float: left;
   top: 500%;
-    width: 1000%;
+    width: 25%;
     background: white;
     border-right: 1px solid #eee;
+    height: calc(100vh - 170px);
 }
 
 .articles3 {
@@ -105,6 +108,11 @@ aside.four {
     width: 75%;
     vertical-align: top;
     padding: 2%;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /*Page Five*/
