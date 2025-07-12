@@ -307,4 +307,15 @@ aside.five {
     font-size: 0.9em;
   }
 }
+.left2 {
+  float: left;
+  margin: 10px 35px 10px 0;
+  width: 170px;
+}
+
+.right2 {
+  float: right;
+  margin: 10px 0 10px 35px;
+  width: 170px;
+}
 
