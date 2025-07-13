@@ -1,13 +1,30 @@
 /* Global Modifications */
+
+h1 {
+	padding: .2em .5em 1em;
+	}
+
+h2 {
+	padding: .2em;
+	text-align: center;
+	}
+
+.banner {
+	display: block;
+	margin: auto;
+	width: 80%;
+	}
+
+
 header.title {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 75px;
   background: linear-gradient(to left, #FAEABB 20%, #CDF7F1 80%);
   z-index: 1000;
-  padding: 10px;
+  float: none;
 }
 
 footer {
@@ -36,7 +53,7 @@ footer ul li b {
 }
 
 #wrapper {
-  margin-top: 90px;
+  margin-top: 80px;
   margin-bottom: 90px;
   position: relative;
   display: flex;
@@ -58,6 +75,8 @@ nav ul li a {
   color: #C78880;
   font-size: 1.25em;
 }
+article { float: none;}
+article p:last-of-type {padding: 0 0 2em}
 
 aside {
   height: calc(100vh - 170px);
@@ -67,6 +86,7 @@ aside {
   border-right: 2px solid #F2987A;
 }
 
+
 /* Page One  */
 aside.one {
   position: fixed;
@@ -75,49 +95,94 @@ aside.one {
   width: 180px;
 }
 
-.articles1 {
-  margin-left: 160px;
-  padding: 20px;
-  width: calc(100% - 160px);
-  overflow-y: auto;
+div.articles1 {
+  position: fixed;
+  margin-left: 185px;
+  height: 1100px;
+  width: 850px;
+  overflow: scroll;
+}
+img.body1 {
+  width: 300px;
 }
 
 /* Page Two  */
 aside.two {
   float: left;
-  width: 180px;
+  width: 130px;
 }
 
-.articles2 {
+div.articles2 {
   float: left;
   width: calc(100% - 160px);
   padding: 20px;
+}
+
+.left2 {
+  float: left;
+  margin: 10px 35px 10px 0px;
+  width: 180px;
+}
+.right2 {
+  float: right;
+  margin: 10px 0px 10px 35px;
+  width: 180px;
 }
 
 /* Page Three */
+
 aside.three {
   float: left;
-  width: 180px;
+  min-width: 180px;
 }
 
-.articles3 {
-  float: left;
-  width: calc(100% - 160px);
-  padding: 20px;
+div.articles3 {
+  min-height: 400px;
+  min-width: 350px;
+  padding: 0 1em;
+  overflow: scroll;
 }
+
+.right3 {
+  float: right;
+  margin: 1em 0em 1em 2em;
+}
+
+.left3 {
+  float: left;
+  margin: 1em 2em 1em 0;
+  width: 25%
+}
+
 
 /* Page Four  */
+
 aside.four {
   display: inline-block;
   vertical-align: top;
-  width: 180px;
+  width: 20%;
+  min-width: 130px;
 }
 
-.articles4 {
+div.articles4 {
   display: inline-block;
-  width: calc(100% - 160px);
+  width: 75%;
   vertical-align: top;
-  padding: 20px;
+  min-height: 400px;
+  min-width: 350px;
+  padding: 2em;
+}
+
+.right4 {
+  float: right;
+  margin: 1em 0em 1em 2em;
+  width: 25%;
+}
+
+.left4 {
+  float: left;
+  margin: 1em 2em 1em 0;
+  width: 25%;
 }
 
 /* Page Five */
@@ -307,15 +372,36 @@ aside.five {
     font-size: 0.9em;
   }
 }
-.left2 {
+.left3 {
   float: left;
-  margin: 10px 35px 10px 0;
-  width: 170px;
+  margin: 1em 2em 1em 0;
+  width: 25%;
 }
 
-.right2 {
+.right3 {
   float: right;
-  margin: 10px 0 10px 35px;
-  width: 170px;
+  margin: 1em 0em 1em 2em;
+  width: 25%;
+}
+.left2, .left3, .left4 {
+  float: left;
+  margin: 1em 2em 1em 0;
+  width: 200px;
 }
 
+.right2, .right3, .right4 {
+  float: right;
+  margin: 1em 0 1em 2em;
+  width: 200px;
+}
+
+img.banner {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+article::after {
+  content: "";
+  display: table;
+  clear: both;
+}
